@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>exchange rates assignment</title>
+ 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+  <style>
+  body{
+  	background-color: silver;
+  		text-align: center;
+  		margin: 0;
+  		padding: 0;
+  	
+  }
+  #app{
+  	width: 60%;
+  	top: 10%;
+  	left: 20%;
+  	position: absolute;
+  	background-color: #aaa;
+  	height: 90%;
+  	box-shadow: 2px 2px 5px #999,-2px -2px 5px #999;
+  	border-radius:  5%;
+  }
+  h1{
+  	color: #011256;
+  	font-weight: bold;
+  	font-size: 40px;
+  		
+  }
+  	table{
+  		background-color: #011256;
+  		/*border:10px solid silver;*/
+  		color: silver;
+  		width: 100%;
+  		font-size: 25px;
+
+  		/*box-shadow: 2px 2px  #011256,-2px -2px #011256;*/
+  	}
+  	
+  	table, td, th {
+  		border-collapse: collapse;
+  		padding: 5px;
+  			/*border: 5px solid silver;*/
+      
+  	}
+  	
+tr:nth-child(even) {
+  	background-color: #aaa;
+  color: #011256;
+  	   
+}
+tr:hover{
+  font-size: 27px;
+  padding: 10px;
+}
+  </style>
+    <div id="app">
+          <h1>
+             value of currencies in  {{base.base}} as
+              at {{ base.date }}
+            </h1>
+            <template>
+              <v-simple-table >
+                <template v-slot:default>
+                  <thead>
+                    <tr>
+                      <th class="text-left">Currency</th>
+                      <th class="text-left">Current Value</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="(value, key) in items">
+                      <td>{{ key }}</td>
+                      <td>{{ value }}</td>
+                    </tr>
+                  </tbody>
+                </template>
+              </v-simple-table>
+            </template>
+        
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <script src="exchange.js"></script>
+  </body>
+</html>
